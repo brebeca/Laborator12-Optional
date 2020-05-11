@@ -6,7 +6,6 @@ import java.awt.*;
 
 public class MainFrame extends JFrame {
     ConfigPanel configPanel;
-    ControlPanel controlPanel;
     DrawingPanel canvas;
 
     public MainFrame() {
@@ -15,21 +14,18 @@ public class MainFrame extends JFrame {
     }
 
     /**
-     * se initializeaza toate componentele paginii : panza , paoul de configurare si panoul de "contol"
-     * se seteaza sinoptionea de inchidere a paginii
-     * librarii: javax.swing.JFrame implicit doarece foloseste functia add din clasa pe care o mostentest :JFrame
+     * se initializeaza toate componentele paginii cu cele doua componente canvas si configPanel
+     * librarii: javax.swing.JFrame implicit doarece foloseste functia add din clasa pe care o mostensest :JFrame
      */
     private void init() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         canvas = new DrawingPanel(this);
-        configPanel= new ConfigPanel(this);
-        controlPanel =new ControlPanel(this);
+        configPanel = new ConfigPanel(this);
 
-        add(canvas,BorderLayout.CENTER);
-        add(controlPanel,BorderLayout.SOUTH);
-        add(controlPanel,BorderLayout.NORTH);
-
+        add(configPanel, BorderLayout.NORTH);
+        add(canvas, BorderLayout.CENTER);
+        setVisible(true);
         pack();
     }
 
